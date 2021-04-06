@@ -1,0 +1,61 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'com.eress'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /* thymeleaf */
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect"
+
+    /* springboot */
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
+    /* mybatis */
+    implementation "org.mariadb.jdbc:mariadb-java-client:2.5.2"
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1"
+
+    /* lombok */
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
+
+    /* logback */
+    implementation "org.slf4j:slf4j-api:1.7.30"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation "org.logback-extensions:logback-ext-spring:0.1.5"
+    implementation "org.codehaus.janino:janino:3.1.0"
+
+    /* gson */
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    /* okhttp - https://square.github.io/okhttp/ */
+    implementation "com.squareup.okhttp3:okhttp:4.3.1"
+
+    /* commons-lang3 - https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 */
+    implementation "org.apache.commons:commons-lang3:3.9"
+
+    /* sha256 */
+    implementation "commons-codec:commons-codec:1.13"
+
+    /* connection pool - https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 */
+    implementation "org.apache.commons:commons-dbcp2:2.7.0"
+}
+
+test {
+    useJUnitPlatform()
+}
